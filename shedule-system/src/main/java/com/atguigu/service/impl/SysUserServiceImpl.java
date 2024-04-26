@@ -13,4 +13,9 @@ public class SysUserServiceImpl implements SysUserService {
         sysUser.setUserPwd(MD5Util.encrypt(sysUser.getUserPwd()));
         return sysUserDao.register(sysUser);
     }
+
+    @Override
+    public SysUser findByname(String username) {
+        return sysUserDao.findByname(username);
+    }
 }
