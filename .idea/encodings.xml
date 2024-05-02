@@ -9,6 +9,12 @@
     <file url="file://$PROJECT_DIR$/demo03-web03config/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo04-web04redirect/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/demo04-web04redirect/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo05-cookie/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo05-cookie/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo06-web06filter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo06-web06filter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo07-web07listener/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo07-web07listener/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shedule-system/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shedule-system/src/main/resources" charset="UTF-8" />
   </component>

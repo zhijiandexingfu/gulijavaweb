@@ -10,6 +10,9 @@
         <option value="$PROJECT_DIR$/demo03-web03redirect/pom.xml" />
         <option value="$PROJECT_DIR$/demo04-web04redirect/pom.xml" />
         <option value="$PROJECT_DIR$/shedule-system/pom.xml" />
+        <option value="$PROJECT_DIR$/demo05-cookie/pom.xml" />
+        <option value="$PROJECT_DIR$/demo06-web06filter/pom.xml" />
+        <option value="$PROJECT_DIR$/demo07-web07listener/pom.xml" />
       </list>
     </option>
   </component>

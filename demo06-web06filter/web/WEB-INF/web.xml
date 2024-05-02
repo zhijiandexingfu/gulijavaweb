@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+<!--    <filter>-->
+<!--        <filter-name>loggerFilter</filter-name>-->
+<!--        <filter-class>com.atguigu.filter.LoggingFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>loggerFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
+<!--    <filter>-->
+<!--        <filter-name>lifeCycleFilter</filter-name>-->
+<!--        <filter-class>com.atguigu.filter.LifeCycleFilter</filter-class>-->
+<!--        <init-param>-->
+<!--            <param-name>DateFormat</param-name>-->
+<!--            <param-value>yyyy-mm-dd-HH:mm:ss</param-value>-->
+<!--        </init-param>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>lifeCycleFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
+    <filter>
+        <filter-name>filter1</filter-name>
+        <filter-class>com.atguigu.filter.Filter1</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter1</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>filter2</filter-name>
+        <filter-class>com.atguigu.filter.Filter2</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>filter3</filter-name>
+        <filter-class>com.atguigu.filter.Filter3</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filter3</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filter2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+<!--    你是一个图像质检Restful接口,输入是带有上传速度,下载速度,IP地址,参考编号的图片,你需要提取图片的
+上传速度,下载速度,IP地址,参考编号,
+以及对应值的概率,以json形式返回-->
+
+</web-app>

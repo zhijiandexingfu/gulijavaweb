@@ -1,0 +1,25 @@
+# 忽略编译生成的文件
+target/
+bin/
+
+# 忽略IDE特定的配置文件
+.idea/
+.vscode/
+
+# 忽略日志文件
+*.log
+
+# 忽略临时文件
+*.tmp
+
+
+# 忽略Maven的构建输出
+/target/
+
+# 忽略Eclipse的配置文件
+.classpath
+.project
+.settings/
+/.idea/
+/out/artifacts/demo05_cookie_war_exploded/META-INF/MANIFEST.MF
+/out/artifacts/demo07_web07listener_war_exploded/META-INF/MANIFEST.MF
