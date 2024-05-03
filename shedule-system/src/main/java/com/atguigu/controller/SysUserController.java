@@ -9,6 +9,7 @@ import com.atguigu.util.MD5Util;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/user/*")
@@ -45,6 +46,8 @@ public class SysUserController extends BaseController {
             System.out.println("登录失败，密码错误");
 
         } else {
+            HttpSession session = req.getSession();
+            session.setAttribute("sysUser",sysUser);
             resp.sendRedirect("/ShowSchdule.html");
             System.out.println("登录成功");
         }

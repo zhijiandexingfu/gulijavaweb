@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function getMessage() {
+        var xmlRequest = new XMLHttpRequest();
+        // 设置回调函数
+        xmlRequest.onreadystatechange = function () {
+            if (xmlRequest.readyState == 4 && xmlRequest.status == 200) {
+                alert("后端数据已经返回");
+                document.getElementById("showContent").value = xmlRequest.responseText;
+            }
+        }
+
+        // 访问目标资源
+        xmlRequest.open("GET", "/hello?username=zhangsan");
+        xmlRequest.send();
+    }
+</script>
+<body>
+<button onclick="getMessage()">按钮</button>
+<input id="showContent" type="text">
+</body>
+</html>
