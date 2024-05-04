@@ -1,10 +1,15 @@
 package com.atguigu.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.atguigu.common.Result;
+import com.atguigu.common.ResultCodeEnum;
 import com.atguigu.dao.SysUserDao;
 import com.atguigu.entity.SysUser;
 import com.atguigu.service.SysUserService;
 import com.atguigu.service.impl.SysUserServiceImpl;
 import com.atguigu.util.MD5Util;
+import com.atguigu.util.WebUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +36,19 @@ public class SysUserController extends BaseController {
         } else {
             resp.sendRedirect("/registerFail.html");
         }
+    }
+
+
+    protected void checkUsername(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String username = req.getParameter("username");
+//        String info = "valid";
+        SysUser sysUser = sysUserService.findByname(username);
+        Result<SysUser> result = Result.ok(null);
+        if(sysUser != null){
+//            info = "not valid";
+            result = Result.build(null, ResultCodeEnum.REGISTER_EXISTED_FAIL);
+        }
+        WebUtil.writeJson(resp,result);
     }
 
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
