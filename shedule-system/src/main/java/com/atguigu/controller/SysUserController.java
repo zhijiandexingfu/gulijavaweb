@@ -27,14 +27,17 @@ public class SysUserController extends BaseController {
 
     protected void regist(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //获取参数
-        String username = req.getParameter("username");
-        String userPwd = req.getParameter("userPwd");
-        SysUser sysUser = new SysUser(null, username, userPwd);
+//        String username = req.getParameter("username");
+//        String userPwd = req.getParameter("userPwd");
+        SysUser sysUser = WebUtil.readJson(req, SysUser.class);
+//        SysUser sysUser = new SysUser(null, username, userPwd);
         int register = sysUserService.register(sysUser);
-        if (register > 0) {
-            resp.sendRedirect("/registerSuccess.html");
+        Result result = Result.ok(null);
+        if (register < 1) {
+            result = Result.build(null,ResultCodeEnum.REGISTER_EXISTED_FAIL);
+//            resp.sendRedirect("/registerSuccess.html");
         } else {
-            resp.sendRedirect("/registerFail.html");
+            WebUtil.writeJson(resp,result);
         }
     }
 
@@ -53,22 +56,24 @@ public class SysUserController extends BaseController {
 
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         //获取参数
-        String username = req.getParameter("username");
-        String userPwd = req.getParameter("userPwd");
-        SysUser sysUser = sysUserService.findByname(username);
+//        String username = req.getParameter("username");
+//        String userPwd = req.getParameter("userPwd");
+        SysUser sysUserRaw = WebUtil.readJson(req, SysUser.class);
+        SysUser sysUser = sysUserService.findByname(sysUserRaw.getUserName());
+        Result result = Result.ok(null);
         if (sysUser == null) {
-            resp.sendRedirect("/LoginUserNameFail.html");
+//            resp.sendRedirect("/LoginUserNameFail.html");
             System.out.println("登录失败，用户名错误");
-        } else if (!sysUser.getUserPwd().equals(MD5Util.encrypt(userPwd))) {
-            resp.sendRedirect("/LoginPwdFail.html");
+            result = Result.build(null,ResultCodeEnum.LOGIN_USER_NAME_FAIL);
+        } else if (!sysUser.getUserPwd().equals(MD5Util.encrypt(sysUserRaw.getUserPwd()))) {
+//            resp.sendRedirect("/LoginPwdFail.html");
+            result = Result.build(null,ResultCodeEnum.LOGIN_PWD_FAIL);
             System.out.println("登录失败，密码错误");
-
         } else {
-            HttpSession session = req.getSession();
-            session.setAttribute("sysUser",sysUser);
-            resp.sendRedirect("/ShowSchdule.html");
+            result = Result.build(null,ResultCodeEnum.LOGIN_SUCCESS);
             System.out.println("登录成功");
         }
+        WebUtil.writeJson(resp,result);
     }
 
 }
